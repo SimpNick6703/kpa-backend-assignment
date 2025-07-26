@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: kpa_user
+      POSTGRES_PASSWORD: kpa_password
+      POSTGRES_DB: kpa_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://kpa_user:kpa_password@db:5432/kpa_db
+    depends_on:
+      - db
+    volumes:
+      - .:/code
+
+volumes:
+  postgres_data:
