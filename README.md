@@ -72,7 +72,7 @@ The following two API endpoints have been implemented:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/SimpNick6703/kpa-backend-assignment
-   cd kpa_backend_assignment
+   cd kpa-backend-assignment
    ```
 
 2. **Create and configure the environment file:**
